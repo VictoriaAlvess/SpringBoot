@@ -58,6 +58,15 @@ public class ProdutosModel {
 		this.preco = preco;
 	}
 
+	public CategoriasModel getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(CategoriasModel categoria) {
+		this.categoria = categoria;
+	}
+	
+	
 
 	
 }

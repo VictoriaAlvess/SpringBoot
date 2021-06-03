@@ -68,6 +68,15 @@ public class CategoriasModel {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+
+	public List<ProdutosModel> getProdutos() {
+		return produtos;
+	}
+
+	public void setProdutos(List<ProdutosModel> produtos) {
+		this.produtos = produtos;
+	}
+	
 	
 	
 	
