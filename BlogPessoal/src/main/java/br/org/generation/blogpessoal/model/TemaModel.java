@@ -14,15 +14,15 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "tb_temas")
-public class Tema {
-	
+public class TemaModel {
+
 	@Id
 	@GeneratedValue
 	private long id;
-	
+
 	@NotNull
 	private String descricao;
-	
+
 	@OneToMany(mappedBy = "tema", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("tema")
 	private List<PostagemModel> Postagem;
@@ -50,6 +50,5 @@ public class Tema {
 	public void setPostagem(List<PostagemModel> postagem) {
 		Postagem = postagem;
 	}
-	
-	
+
 }

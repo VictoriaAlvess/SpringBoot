@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.org.generation.blogpessoal.model.Tema;
+import br.org.generation.blogpessoal.model.TemaModel;
 import br.org.generation.blogpessoal.repository.TemaRepository;
 
 @RestController
@@ -25,38 +25,41 @@ public class TemaController {
 
 	@Autowired
 	private TemaRepository repository;
-	
+
+	// consultar todos os temas
 	@GetMapping
-	public ResponseEntity<List<Tema>> getAll(){
+	public ResponseEntity<List<TemaModel>> getAll() {
 		return ResponseEntity.ok(repository.findAll());
 	}
-	
+
+	// consultar tema por id
 	@GetMapping("/{id}")
-	public ResponseEntity<Tema> getById(@PathVariable long id){
-		return repository.findById(id).map(resp -> ResponseEntity.ok(resp))
-				.orElse(ResponseEntity.notFound().build());
+	public ResponseEntity<TemaModel> getById(@PathVariable long id) {
+		return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
 	}
-	
+
+	// consultar tema pelo nome
 	@GetMapping("/nome/{nome}")
-	public ResponseEntity<List<Tema>> getByName(@PathVariable String nome){
+	public ResponseEntity<List<TemaModel>> getByName(@PathVariable String nome) {
 		return ResponseEntity.ok(repository.findAllByDescricaoContainingIgnoreCase(nome));
 	}
-	
+
+	// gravar tema
 	@PostMapping
-	public ResponseEntity<Tema> post (@RequestBody Tema tema){
-		return ResponseEntity.status(HttpStatus.CREATED).body
-				(repository.save(tema));
+	public ResponseEntity<TemaModel> post(@RequestBody TemaModel tema) {
+		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(tema));
 	}
-	
+
+	// atualizar tema
 	@PutMapping
-	public ResponseEntity<Tema> put (@RequestBody Tema tema){
+	public ResponseEntity<TemaModel> put(@RequestBody TemaModel tema) {
 		return ResponseEntity.ok(repository.save(tema));
 	}
-	
+
+	// deletar tema
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable long id) {
 		repository.deleteById(id);
 	}
-	
-	
+
 }

@@ -36,7 +36,7 @@ public class PostagemModel {
 	
 	@ManyToOne
 	@JsonIgnoreProperties("postagem")
-	private Tema tema;
+	private TemaModel tema;
 
 	
 	public long getId() {
@@ -71,12 +71,12 @@ public class PostagemModel {
 		this.date = date;
 	}
 	
-	public void setTema(Tema tema) {
+	public void setTema(TemaModel tema) {
 		this.tema = tema;
 	}
 
 
-	public Tema getTema() {
+	public TemaModel getTema() {
 		return tema;
 	}
 }
