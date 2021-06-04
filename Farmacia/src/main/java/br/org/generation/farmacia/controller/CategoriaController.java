@@ -55,7 +55,7 @@ public class CategoriaController {
 	//atualizar dados de uma categoria.
 	@PutMapping
 	public ResponseEntity<CategoriaModel> put(@RequestBody CategoriaModel updateCategorias) {
-		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(updateCategorias));
+		return ResponseEntity.status(HttpStatus.OK).body(repository.save(updateCategorias));
 	}
 	
 	//apagar uma categoria do banco de dados.

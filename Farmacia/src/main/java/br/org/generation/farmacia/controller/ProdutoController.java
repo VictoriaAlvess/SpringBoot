@@ -53,7 +53,7 @@ public class ProdutoController {
 		// atualizar produto
 		@PutMapping
 		public ResponseEntity<ProdutoModel> put(@RequestBody ProdutoModel uptadeProduto) {
-			return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(uptadeProduto));
+			return ResponseEntity.status(HttpStatus.OK).body(repository.save(uptadeProduto));
 		}
 		
 		@DeleteMapping("/{id}")
